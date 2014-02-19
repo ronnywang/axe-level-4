@@ -2,12 +2,12 @@
 $records = json_decode(file_get_contents(__DIR__ . '/answer.json'));
 $page = max(1, intval($_GET['page']));
 if ($page != 1) {
-    if (!stripos('chrome', $_ENV["HTTP_USER_AGENT"]) and !stripos('firefox', $_ENV['HTTP_USER_AGENT']) and !stripos('msie', $_ENV['HTTP_USER_AGENT']) and !stripos('opera', $_ENV['HTTP_USER_AGENT'])) {
+    if (!stripos('chrome', $_SERVER["HTTP_USER_AGENT"]) and !stripos('firefox', $_SERVER['HTTP_USER_AGENT']) and !stripos('msie', $_SERVER['HTTP_USER_AGENT']) and !stripos('opera', $_SERVER['HTTP_USER_AGENT'])) {
         header('Location: /lv4');
         exit;
     }
 
-    if (!strpos('axe-level-4.herokuapp.com', $_ENV["HTTP_REFERER"])) {
+    if (!strpos('axe-level-4.herokuapp.com', $_SERVER["HTTP_REFERER"])) {
         header('Location: /lv4');
         exit;
     }
